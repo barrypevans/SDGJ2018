@@ -4,7 +4,7 @@
 
 public class BeatManager : MonoBehaviour
 {
-    private double _bpm = 120;
+    private double _bpm = 60;
     private double _secondCounter = 0;
     private AudioSource _audioSource;
     // double lastTime = 10 * AudioSettings.dspTime;

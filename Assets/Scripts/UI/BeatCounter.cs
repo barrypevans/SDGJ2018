@@ -10,7 +10,7 @@ public class BeatCounter : MonoBehaviour
 
     private void Awake()
     {
-        _beatManager.RegisterBeatDelegate(BeatRecived);
+        _beatManager.RegisterBeatDelegate(BeatRecieved);
     }
 
     private void Update()
@@ -19,8 +19,13 @@ public class BeatCounter : MonoBehaviour
             t.localScale = Vector3.Lerp(t.localScale, Vector3.one, 10f * Time.deltaTime);
     }
 
-    private void BeatRecived(int beatNumber)
+    private void BeatRecieved(int beatNumber)
     {
         _beats[beatNumber].localScale =  new Vector3(1.5f, 1.5f, 1.5f);
+    }
+
+    private void OnDestroy()
+    {
+        _beatManager.UnregisterBeatDelegate(BeatRecieved);
     }
 }
