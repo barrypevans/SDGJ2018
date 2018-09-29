@@ -13,6 +13,8 @@ public class BeatManager : MonoBehaviour
     private event BeatDelegate BeatEvent;
 
     private int _currentBeat = 0;
+    private bool _isPlaying = true;
+    [SerializeField] private RoundManager _roundManager;
 
     private void Start()
     {
@@ -35,6 +37,13 @@ public class BeatManager : MonoBehaviour
             BeatEvent.Invoke((int)beat);
             lastTime = (int)beat;
         }
+
+        if(_isPlaying && !_audioSource.isPlaying)
+        {
+            _roundManager.EndRound();
+            _isPlaying = false;
+        }
+
     }
 
     public void RegisterBeatDelegate(BeatDelegate bDelegate)

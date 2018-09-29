@@ -72,20 +72,5 @@ public class ArmManager : MonoBehaviour
             _potentialIngredient = null;    
     }
 
-    /*private void OnCo(Collider2D other)
-    {
-        Ingredient overlapedIngredient = other.gameObject.GetComponent<Ingredient>();
-        if (null != overlapedIngredient)
-            _potentialIngredient = overlapedIngredient;
-
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Ingredient overlapedIngredient = collision.gameObject.GetComponent<Ingredient>();
-        if (_potentialIngredient != overlapedIngredient)
-            _potentialIngredient = null;
-
-    }*/
 
 }
