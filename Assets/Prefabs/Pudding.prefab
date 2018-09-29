@@ -53,6 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: Pudding
+  _playerId: 0
+  SpriteWidth: 110
+  SpriteHeight: 100
 --- !u!212 &212890851123888322
 SpriteRenderer:
   m_ObjectHideFlags: 1
