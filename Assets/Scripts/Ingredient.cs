@@ -7,6 +7,8 @@ public class Ingredient : MonoBehaviour
 {
     public string ID;
     public int _playerId;
+    public int SpriteWidth;
+    public int SpriteHeight;
     private Rigidbody2D _rigidbody;
 
     private void Awake()

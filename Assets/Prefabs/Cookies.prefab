@@ -53,6 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: Cookies
+  _playerId: 0
+  SpriteWidth: 123
+  SpriteHeight: 89
 --- !u!212 &212210839509083532
 SpriteRenderer:
   m_ObjectHideFlags: 1

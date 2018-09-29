@@ -137,7 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd9b61ffcebe7041bccd6dfb556e1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ingredient_ID: 
+  IngredientManager: {fileID: 0}
+  Image_Ingredient: {fileID: 114578539076063316}
 --- !u!114 &114251441806245232
 MonoBehaviour:
   m_ObjectHideFlags: 1
