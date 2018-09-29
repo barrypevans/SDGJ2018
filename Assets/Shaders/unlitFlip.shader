@@ -37,7 +37,7 @@
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 			float _FlipX;
-			float _FlipY;
+			float _FlipY	;
 			v2f vert (appdata v)
 			{
 				v2f o;

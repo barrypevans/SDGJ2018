@@ -15,6 +15,7 @@ public class ArmManager : MonoBehaviour
     [SerializeField] private Ingredient _potentialIngredient;
     [SerializeField] private Transform _armRoot;
 
+    private bool _grabbing;
 
     private void Awake()
     {
@@ -29,13 +30,18 @@ public class ArmManager : MonoBehaviour
                                     Input.GetAxis("Vertical "   + (_side ? "Left " : "Right ") + (_playerIndex + 1)));
         if (Mathf.Abs(velocityDirection.magnitude) > .1f)
             _rigidBody.MovePosition(Vector3.Lerp(transform.position,_armRoot.position + new Vector3(velocityDirection.x, velocityDirection.y,0)* ArmLength, 10*Time.deltaTime));
+
+        KeyCode key = _side ? KeyCode.Joystick1Button6 : KeyCode.Joystick1Button7;
+        _grabbing = Input.GetKey(key + _playerIndex * 19);
     }
 
     private void BeatRecieved(int beatNumber)
     {
-        KeyCode key = _side ? KeyCode.Joystick1Button6 : KeyCode.Joystick1Button7 ;
-        if (Input.GetKey(key + _playerIndex*19))
+       
+        if (_grabbing)
         {
+            if (null != _acitiveIngredient) return;
+
             _acitiveIngredient = _potentialIngredient;
             if(null != _acitiveIngredient)
                 _acitiveIngredient.Grab(transform);
@@ -54,7 +60,19 @@ public class ArmManager : MonoBehaviour
         _beatManager.UnregisterBeatDelegate(BeatRecieved);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void PotentialIngredientEnter(Ingredient ingredient)
+    {
+        if (null != ingredient)
+            _potentialIngredient = ingredient;
+    }
+
+    public void PotentialIngredientExit(Ingredient ingredient)
+    {
+        if (_potentialIngredient != ingredient)
+            _potentialIngredient = null;    
+    }
+
+    /*private void OnCo(Collider2D other)
     {
         Ingredient overlapedIngredient = other.gameObject.GetComponent<Ingredient>();
         if (null != overlapedIngredient)
@@ -68,6 +86,6 @@ public class ArmManager : MonoBehaviour
         if (_potentialIngredient != overlapedIngredient)
             _potentialIngredient = null;
 
-    }
+    }*/
 
 }
