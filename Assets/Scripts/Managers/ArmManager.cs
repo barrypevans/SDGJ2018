@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ArmManager : MonoBehaviour
 {
+    private static float ArmLength = 5.0f;
+
     [SerializeField] private BeatManager _beatManager;
     [SerializeField] private int _playerIndex = 0;
     [SerializeField] private bool _side = false;
@@ -11,7 +13,7 @@ public class ArmManager : MonoBehaviour
     private Rigidbody2D _rigidBody;
     [SerializeField] private Ingredient _acitiveIngredient;
     [SerializeField] private Ingredient _potentialIngredient;
-
+    [SerializeField] private Transform _armRoot;
 
 
     private void Awake()
@@ -26,7 +28,7 @@ public class ArmManager : MonoBehaviour
                                     Input.GetAxis("Horizontal " + (_side ? "Left " : "Right ") + (_playerIndex + 1)), 
                                     Input.GetAxis("Vertical "   + (_side ? "Left " : "Right ") + (_playerIndex + 1)));
         if (Mathf.Abs(velocityDirection.magnitude) > .1f)
-            _rigidBody.velocity = velocityDirection.normalized * 15;
+            _rigidBody.MovePosition(Vector3.Lerp(transform.position,_armRoot.position + new Vector3(velocityDirection.x, velocityDirection.y,0)* ArmLength, 10*Time.deltaTime));
     }
 
     private void BeatRecieved(int beatNumber)
