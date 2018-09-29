@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IngredientIndicator : MonoBehaviour {
 
-    public string Ingredient_ID;
+    public IngredientManager IngredientManager;
 
 	// Use this for initialization
 	void Start () {
