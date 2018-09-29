@@ -6,7 +6,7 @@ using UnityEngine;
 public class Ingredient : MonoBehaviour
 {
     public string ID;
-
+    public int _playerId;
     private Rigidbody2D _rigidbody;
 
     private void Awake()
@@ -25,6 +25,19 @@ public class Ingredient : MonoBehaviour
     {
         transform.parent = null;
         _rigidbody.simulated = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "pot")
+        {
+            if(_playerId == 0)
+                RoundManager.Instance._p1Score += 1;
+            else
+                RoundManager.Instance._p2Score += 1;
+
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

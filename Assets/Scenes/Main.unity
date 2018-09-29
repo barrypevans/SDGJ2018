@@ -3953,9 +3953,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1542618032}
   - component: {fileID: 1542618033}
-  m_Layer: 0
+  - component: {fileID: 1542618034}
+  m_Layer: 9
   m_Name: Pot_01
-  m_TagString: Untagged
+  m_TagString: pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4019,6 +4020,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1542618034
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1542618031}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.010455012, y: -1.2023743}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.55, y: 3.19}
+    newSize: {x: 3.55, y: 3.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.9017632, y: 0.7852514}
+  m_EdgeRadius: 0
 --- !u!1 &1586805856
 GameObject:
   m_ObjectHideFlags: 0
@@ -4209,9 +4235,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1659650208}
   - component: {fileID: 1659650209}
-  m_Layer: 0
+  - component: {fileID: 1659650210}
+  m_Layer: 9
   m_Name: Pot_01
-  m_TagString: Untagged
+  m_TagString: pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4275,6 +4302,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1659650210
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1659650207}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00000011920929, y: -1.2860178}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.55, y: 3.19}
+    newSize: {x: 3.55, y: 3.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.9644964, y: 0.6179645}
+  m_EdgeRadius: 0
 --- !u!1 &1843466082
 GameObject:
   m_ObjectHideFlags: 0
@@ -4360,6 +4412,7 @@ GameObject:
   - component: {fileID: 1868543091}
   - component: {fileID: 1868543090}
   - component: {fileID: 1868543092}
+  - component: {fileID: 1868543093}
   m_Layer: 0
   m_Name: beat-manager
   m_TagString: Untagged
@@ -4378,6 +4431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4093c380892876b49afbe602b2e659b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _roundManager: {fileID: 1868543093}
 --- !u!4 &1868543091
 Transform:
   m_ObjectHideFlags: 0
@@ -4486,6 +4540,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1868543093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1868543089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2441df1b96bf4b349bab96b288cbd3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _p1Score: 0
+  _p2Score: 0
 --- !u!1 &1997978517
 GameObject:
   m_ObjectHideFlags: 0
