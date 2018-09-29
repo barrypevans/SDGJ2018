@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    private int _ingredientID = 0;
+    public string ID;
 
     public void Grab(Transform hand)
     {
