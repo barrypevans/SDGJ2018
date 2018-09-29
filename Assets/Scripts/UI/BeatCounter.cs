@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
 public class BeatCounter : MonoBehaviour
@@ -19,9 +18,11 @@ public class BeatCounter : MonoBehaviour
             t.localScale = Vector3.Lerp(t.localScale, Vector3.one, 10f * Time.deltaTime);
     }
 
-    private void BeatRecieved(int beatNumber)
+    private void BeatRecieved(int beatNumber, bool accent)
     {
-        _beats[beatNumber].localScale =  new Vector3(1.5f, 1.5f, 1.5f);
+        _beats[beatNumber].localScale = accent ? new Vector3(2f, 2f, 2f) : new Vector3(1.3f, 1.3f, 1.3f) ;
+        if (!accent)
+            _beats[beatNumber].GetComponent<Image>().color = new Color(.85f, .85f, .85f,1);
     }
 
     private void OnDestroy()

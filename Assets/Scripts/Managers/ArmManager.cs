@@ -35,9 +35,10 @@ public class ArmManager : MonoBehaviour
         _grabbing = Input.GetKey(key + _playerIndex * 19);
     }
 
-    private void BeatRecieved(int beatNumber)
+    private void BeatRecieved(int beatNumber, bool accent)
     {
-       
+        if (!accent) return;
+
         if (_grabbing)
         {
             if (null != _acitiveIngredient) return;

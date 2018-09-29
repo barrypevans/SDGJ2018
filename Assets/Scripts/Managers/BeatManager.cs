@@ -9,17 +9,17 @@ public class BeatManager : MonoBehaviour
     private AudioSource _audioSource;
     // double lastTime = 10 * AudioSettings.dspTime;
     int lastTime =0;
-    public delegate void BeatDelegate(int beatNumber);
+    public delegate void BeatDelegate(int beatNumber, bool Accent);
     private event BeatDelegate BeatEvent;
 
     private int _currentBeat = 0;
     private bool _isPlaying = true;
     [SerializeField] private RoundManager _roundManager;
-
+    private bool[] _accentBeats = { true, false, false, false, true, false, false,false };
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        BeatEvent.Invoke(_currentBeat);
+        BeatEvent.Invoke(_currentBeat, _accentBeats[(int)_currentBeat]);
     }
 
     /// <summary>
@@ -34,7 +34,7 @@ public class BeatManager : MonoBehaviour
         beat = (int)beat;
         if(lastTime!=beat)
         {
-            BeatEvent.Invoke((int)beat);
+            BeatEvent.Invoke((int)beat, _accentBeats[(int)beat]);
             lastTime = (int)beat;
         }
 
