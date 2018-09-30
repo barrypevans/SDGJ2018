@@ -32,7 +32,7 @@ public class PauseManager : MonoBehaviour {
 		
 	}
 
-    public void PauseGame()
+    public void PauseGame(bool bOpenPauseMenu = true)
     {
         m_bIsPaused = true;
         Time.timeScale = 0.0f;
@@ -40,7 +40,7 @@ public class PauseManager : MonoBehaviour {
         {
             BeatManager.Pause();
         }
-        if (Menu_Pause != null)
+        if (Menu_Pause != null && bOpenPauseMenu)
         {
             Menu_Pause.gameObject.SetActive(true);
             if (EventSystem != null)
