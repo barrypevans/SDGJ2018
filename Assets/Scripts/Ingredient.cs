@@ -19,6 +19,7 @@ public class Ingredient : MonoBehaviour
     public void Grab(Transform hand)
     {
         transform.parent = hand;
+        transform.localPosition = Vector3.zero;
         _rigidbody.simulated = false;
         _rigidbody.constraints = RigidbodyConstraints2D.None;
     }
