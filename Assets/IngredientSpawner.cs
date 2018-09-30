@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class IngredientSpawner : MonoBehaviour {
 
+    public IngredientManager IngredientManager;
     public GameObject IngredientPrefab;
+    public int PlayerID;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +25,8 @@ public class IngredientSpawner : MonoBehaviour {
             GameObject pObject = Instantiate(IngredientPrefab);
             Ingredient pIngredient = pObject.GetComponent<Ingredient>();
             pIngredient.IngredientSpawner = this;
+            pIngredient.IngredientManager = IngredientManager;
+            pIngredient._playerId = PlayerID;
             pObject.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
         }
     }
