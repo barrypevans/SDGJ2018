@@ -31,11 +31,19 @@ public class IngredientManager : MonoBehaviour
     public int IngredientMismatchedScoreLoss;
     public int IngredientMissPotScoreLoss;
 
+    public ExpresionManager[] expressionManager;
+
     // Use this for initialization
     void Start ()
     {
         m_lst_pIngredientSpawnersAvailable_Left = new List<GameObject>(IngredientSpawns_Left);
         m_lst_pIngredientSpawnersAvailable_Right = new List<GameObject>(IngredientSpawns_Right);
+
+        foreach (GameObject g in IngredientSpawns_Left)
+            g.GetComponent<IngredientSpawner>().expressionManager = expressionManager[0];
+        foreach (GameObject g in IngredientSpawns_Right)
+            g.GetComponent<IngredientSpawner>().expressionManager = expressionManager[1];
+
         foreach (GameObject gameObject in Ingredients)
         {
             IngredientsIDs_To_IngredientPrefab.Add(gameObject.GetComponent<Ingredient>().ID, gameObject);

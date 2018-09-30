@@ -7,6 +7,8 @@ public class IngredientSpawner : MonoBehaviour {
     public string IngredientID;
     public int PlayerID;
 
+    public ExpresionManager expressionManager;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -24,6 +26,7 @@ public class IngredientSpawner : MonoBehaviour {
             Ingredient pIngredient = pObject.GetComponent<Ingredient>();
             pIngredient.IngredientSpawner = this;
             pIngredient._playerId = PlayerID;
+            pIngredient.expressionManager = expressionManager;
             pObject.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
         }
     }

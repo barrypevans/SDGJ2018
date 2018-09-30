@@ -6,9 +6,26 @@ public class ExpresionManager : MonoBehaviour
 {
     public GameObject[] EyesOpen;
     public GameObject[] EyesBlink;
+    public GameObject MouthNormal;
+    public GameObject MouthSurprised;
     private void Start()
     {
         StartCoroutine(Co_Blink());
+    }
+
+
+    public void SetSurprised(float duration)
+    {
+        MouthNormal.SetActive(false);
+        MouthSurprised.SetActive(true);
+        StartCoroutine(Co_ReturnToNormal(duration));
+    }
+
+    private IEnumerator Co_ReturnToNormal(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        MouthNormal.SetActive(true);
+        MouthSurprised.SetActive(false);
     }
 
     private IEnumerator Co_Blink()
@@ -19,12 +36,12 @@ public class ExpresionManager : MonoBehaviour
                 g.SetActive(false);
             foreach (GameObject g in EyesBlink)
                 g.SetActive(true);
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(.02f);
             foreach (GameObject g in EyesOpen)
                 g.SetActive(true);
             foreach (GameObject g in EyesBlink)
                 g.SetActive(false);
-            yield return new WaitForSeconds(Random.Range(1.9f, 5));
+            yield return new WaitForSeconds(Random.Range(1.9f, 3.6f));
         }
     }
 }
