@@ -6,6 +6,10 @@ public class AudioService : MonoBehaviour
 {
     public static AudioService Instance;
     private AudioSource _audioSource;
+
+    public float MusicVolume;
+    public float SFXVolume;
+
     private void Awake()
     {
         if (null == Instance)
@@ -26,7 +30,7 @@ public class AudioService : MonoBehaviour
     {
         AudioClip clip = Resources.Load("sfx\\" + audioID) as AudioClip;
         if (null == clip) Debug.LogError("Audio Clip Not Found");
-        _audioSource.PlayOneShot(clip,3);
+        _audioSource.PlayOneShot(clip, SFXVolume);
     }
 
 

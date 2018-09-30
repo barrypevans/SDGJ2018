@@ -50,6 +50,17 @@ public class BeatManager : MonoBehaviour
 
     }
 
+    public void Pause()
+    {
+        _isPlaying = false;
+        _audioSource.Pause();
+    }
+
+    public void UnPause()
+    {
+        _audioSource.UnPause();
+        _isPlaying = true;
+    }
     public bool isOnBeat()
     {
         float bps = (float)_bpm / 60.0f;

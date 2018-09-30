@@ -8,6 +8,7 @@ public class Menu_Pause : MonoBehaviour {
 
     public Selectable FirstSelectable;
     public PauseManager PauseManager;
+    public GameObject Menu_Volume;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +22,7 @@ public class Menu_Pause : MonoBehaviour {
 
     public void OnClick_Resume()
     {
-
+        PauseManager.UnPauseGame();
     }
 
     public void OnClick_Help()
@@ -30,8 +31,8 @@ public class Menu_Pause : MonoBehaviour {
     }
 
     public void OnClick_Volume()
-    {
-
+    { 
+        Menu_Volume.SetActive(true);
     }
 
     public void OnClick_Quit()

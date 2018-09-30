@@ -38,7 +38,7 @@ public class PauseManager : MonoBehaviour {
         Time.timeScale = 0.0f;
         if (BeatManager!= null)
         {
-            BeatManager.GetComponent<AudioSource>().Pause();
+            BeatManager.Pause();
         }
         if (Menu_Pause != null)
         {
@@ -56,7 +56,7 @@ public class PauseManager : MonoBehaviour {
         Time.timeScale = 1.0f;
         if (BeatManager != null)
         {
-            BeatManager.GetComponent<AudioSource>().UnPause();
+            BeatManager.UnPause();
         }
         if (Menu_Pause != null)
         {

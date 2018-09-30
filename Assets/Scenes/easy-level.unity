@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4093c380892876b49afbe602b2e659b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentBeatUnQuantized: 0
   _roundManager: {fileID: 0}
 --- !u!82 &49890014
 AudioSource:
@@ -723,7 +724,7 @@ SpriteRenderer:
   m_Size: {x: 1.4, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &616878671
@@ -843,7 +844,7 @@ SpriteRenderer:
   m_Size: {x: 1.4, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &626604447
@@ -1168,7 +1169,7 @@ SpriteRenderer:
   m_Size: {x: 1.4, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!224 &704534572 stripped
@@ -1588,7 +1589,7 @@ SpriteRenderer:
   m_Size: {x: 1.4, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1329603950
@@ -1624,6 +1625,7 @@ MonoBehaviour:
   _playerId: 0
   SpriteWidth: 0
   SpriteHeight: 0
+  IngredientSpawner: {fileID: 0}
 --- !u!61 &1329603952
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2206,7 +2208,7 @@ SpriteRenderer:
   m_Size: {x: 1.4, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1695640145
@@ -2420,7 +2422,7 @@ SpriteRenderer:
   m_Size: {x: 1.4, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1703132420
@@ -2540,7 +2542,7 @@ SpriteRenderer:
   m_Size: {x: 1.4, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2069377903
