@@ -42,7 +42,7 @@ public class Ingredient : MonoBehaviour
                 if (IngredientManager.CurrentIngredient_Left.GetComponent<Ingredient>().ID == ID)
                 {
                     RoundManager.Instance._p1Score += IngredientManager.IngredientMatchScoreGain;
-                    IngredientManager.SetIngredient();
+                    IngredientManager.SetIngredient(_playerId);
                 }
                 else
                 {
@@ -54,7 +54,7 @@ public class Ingredient : MonoBehaviour
                 if (IngredientManager.CurrentIngredient_Right.GetComponent<Ingredient>().ID == ID)
                 {
                     RoundManager.Instance._p2Score += IngredientManager.IngredientMatchScoreGain;
-                    IngredientManager.SetIngredient();
+                    IngredientManager.SetIngredient(_playerId);
                 }
                 else
                 {

@@ -25,13 +25,18 @@ public class IngredientManager : MonoBehaviour {
 		
 	}
 
-    public void SetIngredient()
+    public void SetIngredient(int iPlayerIndex = -1)
     {
-        CurrentIngredient_Left = GetRandomIngredient();
-        CurrentIngredient_Right = GetRandomIngredient();
-        IngredientIndicator_Left.SetIngredient(CurrentIngredient_Left.GetComponent<Ingredient>());
-        IngredientIndicator_Right.SetIngredient(CurrentIngredient_Right.GetComponent<Ingredient>());
-        IngredientIndicator_Right.SetIngredient(CurrentIngredient_Right.GetComponent<Ingredient>());
+        if (iPlayerIndex == 0 || iPlayerIndex == -1)
+        {
+            CurrentIngredient_Left = GetRandomIngredient();
+            IngredientIndicator_Left.SetIngredient(CurrentIngredient_Left.GetComponent<Ingredient>());
+        }
+        if (iPlayerIndex == 1 || iPlayerIndex == -1)
+        {
+            CurrentIngredient_Right = GetRandomIngredient();
+            IngredientIndicator_Right.SetIngredient(CurrentIngredient_Right.GetComponent<Ingredient>());
+        }
     }
 
     public GameObject GetRandomIngredient()

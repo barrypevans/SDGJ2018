@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
 {
@@ -19,7 +20,9 @@ public class RoundManager : MonoBehaviour
 
     public void EndRound()
     {
-        print("End Round");
+        PlayerPrefs.SetInt("Player1Score", _p1Score);
+        PlayerPrefs.SetInt("Player2Score", _p2Score);
+        SceneManager.LoadScene("Menu_EndGame");
     }
 
 }
