@@ -40,12 +40,22 @@ public class Ingredient : MonoBehaviour
             else
                 RoundManager.Instance._p2Score += 1;
 
-            Destroy(gameObject);
-
             if (IngredientSpawner != null)
             {
                 IngredientSpawner.SpawnIngredient();
             }
+
+            Destroy(gameObject);
+
+        }
+        else if (collision.gameObject.tag == "table")
+        {
+            if (IngredientSpawner != null)
+            {
+                IngredientSpawner.SpawnIngredient();
+            }
+
+            Destroy(gameObject);
         }
     }
 
