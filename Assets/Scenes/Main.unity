@@ -3192,7 +3192,8 @@ Prefab:
         type: 2}
       propertyPath: IngredientPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1504178868010346, guid: a0d64aee0189b9d459499f5cb7a1879c,
+        type: 2}
     - target: {fileID: 1306870404215288, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
       propertyPath: m_Name
       value: Shelf_01 (4)
@@ -3328,7 +3329,8 @@ Prefab:
         type: 2}
       propertyPath: IngredientPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1963261645239572, guid: 508f09ee59ecc6744be6f07c6524dba6,
+        type: 2}
     - target: {fileID: 1306870404215288, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
       propertyPath: m_Name
       value: Shelf_01 (3)
@@ -4009,7 +4011,8 @@ Prefab:
         type: 2}
       propertyPath: IngredientPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1493773029896192, guid: 0d807fbe24fbac14c8e952ddb011df9d,
+        type: 2}
     - target: {fileID: 1306870404215288, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
       propertyPath: m_Name
       value: Shelf_01 (5)
