@@ -9,6 +9,7 @@ public class Ingredient : MonoBehaviour
     public int _playerId;
     public int SpriteWidth;
     public int SpriteHeight;
+    public IngredientSpawner IngredientSpawner;
     private Rigidbody2D _rigidbody;
 
     private void Awake()
@@ -40,6 +41,11 @@ public class Ingredient : MonoBehaviour
                 RoundManager.Instance._p2Score += 1;
 
             Destroy(gameObject);
+
+            if (IngredientSpawner != null)
+            {
+                IngredientSpawner.SpawnIngredient();
+            }
         }
     }
 

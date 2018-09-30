@@ -5,13 +5,15 @@ using UnityEngine;
 public class IngredientManager : MonoBehaviour {
 
     public GameObject[] Ingredients;
-    public IngredientIndicator IngredientIndicatorLeft;
-    public IngredientIndicator IngredientIndicatorRight;
+    public GameObject[] IngredientSpawns_Left;
+    public GameObject[] IngredientSpawns_Right;
+    public IngredientIndicator IngredientIndicator_Left;
+    public IngredientIndicator IngredientIndicator_Right;
 
     // Use this for initialization
     void Start () {
-        IngredientIndicatorLeft.SetIngredient(GetRandomIngredient().GetComponent<Ingredient>());
-        IngredientIndicatorRight.SetIngredient(GetRandomIngredient().GetComponent<Ingredient>());
+        IngredientIndicator_Left.SetIngredient(GetRandomIngredient().GetComponent<Ingredient>());
+        IngredientIndicator_Right.SetIngredient(GetRandomIngredient().GetComponent<Ingredient>());
     }
 
     // Update is called once per frame
