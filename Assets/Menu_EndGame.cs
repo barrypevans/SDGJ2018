@@ -16,6 +16,7 @@ public class Menu_EndGame : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        AudioService.Instance.PlayAudio("fanfare");
         m_pSpriteRenderer = GetComponent<SpriteRenderer>();
         int iPlayer1Score = PlayerPrefs.GetInt("Player1Score");
         int iPlayer2Score = PlayerPrefs.GetInt("Player2Score");
