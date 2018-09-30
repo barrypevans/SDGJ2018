@@ -10,7 +10,6 @@ public class Ingredient : MonoBehaviour
     public int SpriteWidth;
     public int SpriteHeight;
     public IngredientSpawner IngredientSpawner;
-    public IngredientManager IngredientManager;
     private Rigidbody2D _rigidbody;
 
     private void Awake()
@@ -39,32 +38,32 @@ public class Ingredient : MonoBehaviour
         {
             if (_playerId == 0)
             {
-                if (IngredientManager.CurrentIngredient_Left.GetComponent<Ingredient>().ID == ID)
+                if (IngredientManager.Instance.CurrentIngredient_Left.GetComponent<Ingredient>().ID == ID)
                 {
-                    RoundManager.Instance._p1Score += IngredientManager.IngredientMatchScoreGain;
-                    IngredientManager.SetIngredient(_playerId);
+                    RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreGain;
+                    IngredientManager.Instance.SetIngredient(_playerId);
                 }
                 else
                 {
-                    RoundManager.Instance._p1Score -= IngredientManager.IngredientMismatchedScoreLoss;
+                    RoundManager.Instance._p1Score -= IngredientManager.Instance.IngredientMismatchedScoreLoss;
                 }
             }
             else
             {
-                if (IngredientManager.CurrentIngredient_Right.GetComponent<Ingredient>().ID == ID)
+                if (IngredientManager.Instance.CurrentIngredient_Right.GetComponent<Ingredient>().ID == ID)
                 {
-                    RoundManager.Instance._p2Score += IngredientManager.IngredientMatchScoreGain;
-                    IngredientManager.SetIngredient(_playerId);
+                    RoundManager.Instance._p2Score += IngredientManager.Instance.IngredientMatchScoreGain;
+                    IngredientManager.Instance.SetIngredient(_playerId);
                 }
                 else
                 {
-                    RoundManager.Instance._p2Score -= IngredientManager.IngredientMismatchedScoreLoss;
+                    RoundManager.Instance._p2Score -= IngredientManager.Instance.IngredientMismatchedScoreLoss;
                 }
             }
 
             if (IngredientSpawner != null)
             {
-                IngredientSpawner.SpawnIngredient();
+                IngredientManager.Instance.MarkSpawnerAvailableAndSpawnIngredientAtRandomSpawner(IngredientSpawner, this.ID);
             }
 
             AudioService.Instance.PlayAudio("correct");
@@ -76,15 +75,15 @@ public class Ingredient : MonoBehaviour
         {
             if (_playerId == 0)
             {
-                RoundManager.Instance._p1Score -= IngredientManager.IngredientMissPotScoreLoss;
+                RoundManager.Instance._p1Score -= IngredientManager.Instance.IngredientMissPotScoreLoss;
             }
             else
             {
-                RoundManager.Instance._p2Score -= IngredientManager.IngredientMissPotScoreLoss;
+                RoundManager.Instance._p2Score -= IngredientManager.Instance.IngredientMissPotScoreLoss;
             }
             if (IngredientSpawner != null)
             {
-                IngredientSpawner.SpawnIngredient();
+                IngredientManager.Instance.MarkSpawnerAvailableAndSpawnIngredientAtRandomSpawner(IngredientSpawner, this.ID);
             }
             AudioService.Instance.PlayAudio("mistake");
             Destroy(gameObject);

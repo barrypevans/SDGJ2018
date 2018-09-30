@@ -2,21 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IngredientManager : MonoBehaviour {
+public class IngredientManager : MonoBehaviour
+{
+
+    public static IngredientManager Instance;
+
+    private void Awake()
+    {
+        if (null == Instance)
+            Instance = this;
+        else
+            Destroy(this);
+    }
 
     public GameObject[] Ingredients;
+    public Dictionary<string, GameObject> IngredientsIDs_To_IngredientPrefab = new Dictionary<string, GameObject>();
     public GameObject[] IngredientSpawns_Left;
     public GameObject[] IngredientSpawns_Right;
+    private List<GameObject> m_lst_pIngredientSpawnersAvailable_Left;
+    private List<GameObject> m_lst_pIngredientSpawnersAvailable_Right;
+
     public GameObject CurrentIngredient_Left;
     public GameObject CurrentIngredient_Right;
     public IngredientIndicator IngredientIndicator_Left;
     public IngredientIndicator IngredientIndicator_Right;
+
     public int IngredientMatchScoreGain;
     public int IngredientMismatchedScoreLoss;
     public int IngredientMissPotScoreLoss;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        m_lst_pIngredientSpawnersAvailable_Left = new List<GameObject>(IngredientSpawns_Left);
+        m_lst_pIngredientSpawnersAvailable_Right = new List<GameObject>(IngredientSpawns_Right);
+        foreach (GameObject gameObject in Ingredients)
+        {
+            IngredientsIDs_To_IngredientPrefab.Add(gameObject.GetComponent<Ingredient>().ID, gameObject);
+            this.SpawnIngredientAtRandomSpawnerLeft(gameObject);
+            this.SpawnIngredientAtRandomSpawnerRight(gameObject);
+        }
+
         this.SetIngredient();
     }
 
@@ -42,5 +68,39 @@ public class IngredientManager : MonoBehaviour {
     public GameObject GetRandomIngredient()
     {
         return Ingredients[Random.Range(0, Ingredients.Length)];
+    }
+
+    public void SpawnIngredientAtRandomSpawnerLeft(GameObject pIngredientPrefab)
+    {
+        if (m_lst_pIngredientSpawnersAvailable_Left.Count > 0)
+        {
+            GameObject pSpawner = m_lst_pIngredientSpawnersAvailable_Left[Random.Range(0, m_lst_pIngredientSpawnersAvailable_Left.Count)];
+            m_lst_pIngredientSpawnersAvailable_Left.Remove(pSpawner);
+            pSpawner.GetComponent<IngredientSpawner>().SpawnIngredient(pIngredientPrefab);
+        }
+    }
+
+    public void SpawnIngredientAtRandomSpawnerRight(GameObject pIngredientPrefab)
+    {
+        if (m_lst_pIngredientSpawnersAvailable_Right.Count > 0)
+        {
+            GameObject pSpawner = m_lst_pIngredientSpawnersAvailable_Right[Random.Range(0, m_lst_pIngredientSpawnersAvailable_Right.Count)];
+            m_lst_pIngredientSpawnersAvailable_Right.Remove(pSpawner);
+            pSpawner.GetComponent<IngredientSpawner>().SpawnIngredient(pIngredientPrefab);
+        }
+    }
+
+    public void MarkSpawnerAvailableAndSpawnIngredientAtRandomSpawner(IngredientSpawner pSpawner, string strIngredientID)
+    {
+        if (pSpawner.PlayerID == 0)
+        {
+            m_lst_pIngredientSpawnersAvailable_Left.Add(pSpawner.gameObject);
+            SpawnIngredientAtRandomSpawnerLeft(IngredientsIDs_To_IngredientPrefab[strIngredientID]);
+        }
+        else
+        {
+            m_lst_pIngredientSpawnersAvailable_Right.Add(pSpawner.gameObject);
+            SpawnIngredientAtRandomSpawnerRight(IngredientsIDs_To_IngredientPrefab[strIngredientID]);
+        }
     }
 }

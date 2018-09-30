@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class IngredientSpawner : MonoBehaviour {
 
-    public IngredientManager IngredientManager;
-    public GameObject IngredientPrefab;
+    public string IngredientID;
     public int PlayerID;
 
 	// Use this for initialization
 	void Start () {
-        this.SpawnIngredient();
 	}
 	
 	// Update is called once per frame
@@ -18,14 +16,13 @@ public class IngredientSpawner : MonoBehaviour {
 		
 	}
 
-    public void SpawnIngredient()
+    public void SpawnIngredient(GameObject pIngredientPrefab)
     {
-        if (IngredientPrefab != null)
+        if (pIngredientPrefab != null)
         {
-            GameObject pObject = Instantiate(IngredientPrefab);
+            GameObject pObject = Instantiate(pIngredientPrefab);
             Ingredient pIngredient = pObject.GetComponent<Ingredient>();
             pIngredient.IngredientSpawner = this;
-            pIngredient.IngredientManager = IngredientManager;
             pIngredient._playerId = PlayerID;
             pObject.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
         }
