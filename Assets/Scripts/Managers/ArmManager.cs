@@ -76,5 +76,13 @@ public class ArmManager : MonoBehaviour
             _potentialIngredient = null;    
     }
 
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Hand")
+        {
+            AudioService.Instance.PlayAudio("high_five");
+        }
+    }
+
 
 }
