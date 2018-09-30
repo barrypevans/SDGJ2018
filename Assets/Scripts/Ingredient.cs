@@ -12,7 +12,7 @@ public class Ingredient : MonoBehaviour
     public IngredientSpawner IngredientSpawner;
     private Rigidbody2D _rigidbody;
     private BeatManager _beatManager;
-
+    public ExpresionManager expressionManager;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -85,6 +85,8 @@ public class Ingredient : MonoBehaviour
                 {
                     RoundManager.Instance._p1Score -= IngredientManager.Instance.IngredientMismatchedScoreLoss;
                     AudioService.Instance.PlayAudio("mistake");
+                    if (null != expressionManager)
+                        expressionManager.SetSurprised(1);
                 }
             }
             else
@@ -99,6 +101,7 @@ public class Ingredient : MonoBehaviour
                 {
                     RoundManager.Instance._p2Score -= IngredientManager.Instance.IngredientMismatchedScoreLoss;
                     AudioService.Instance.PlayAudio("mistake");
+                    expressionManager.SetSurprised(1);
                 }
             }
 
@@ -125,6 +128,7 @@ public class Ingredient : MonoBehaviour
                 IngredientManager.Instance.MarkSpawnerAvailableAndSpawnIngredientAtRandomSpawner(IngredientSpawner, this.ID);
             }
             AudioService.Instance.PlayAudio("mistake");
+            expressionManager.SetSurprised(1);
             Destroy(gameObject);
         }
     }
