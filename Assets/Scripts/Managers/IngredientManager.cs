@@ -40,9 +40,9 @@ public class IngredientManager : MonoBehaviour
         m_lst_pIngredientSpawnersAvailable_Right = new List<GameObject>(IngredientSpawns_Right);
 
         foreach (GameObject g in IngredientSpawns_Left)
-            g.GetComponent<Ingredient>().expressionManager = expressionManager[0];
+            g.GetComponent<IngredientSpawner>().expressionManager = expressionManager[0];
         foreach (GameObject g in IngredientSpawns_Right)
-            g.GetComponent<Ingredient>().expressionManager = expressionManager[1];
+            g.GetComponent<IngredientSpawner>().expressionManager = expressionManager[1];
 
         foreach (GameObject gameObject in Ingredients)
         {

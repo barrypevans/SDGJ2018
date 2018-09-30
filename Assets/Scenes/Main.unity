@@ -727,6 +727,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EyesOpen: []
   EyesBlink: []
+  MouthNormal: {fileID: 0}
+  MouthSurprised: {fileID: 0}
 --- !u!114 &432452841 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114139667340383548, guid: b543832077a08bf4a8a15c0b6865c57a,
@@ -3402,6 +3404,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114964965776025134, guid: f3ea48d862179064cbf518556b74d2c2,
+        type: 2}
+      propertyPath: _playerIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114819691067108816, guid: f3ea48d862179064cbf518556b74d2c2,
+        type: 2}
+      propertyPath: _playerIndex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3ea48d862179064cbf518556b74d2c2, type: 2}
   m_IsPrefabAsset: 0
@@ -3410,6 +3422,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4940768596890276, guid: f3ea48d862179064cbf518556b74d2c2,
     type: 2}
   m_PrefabInternal: {fileID: 1848801409}
+--- !u!114 &1848801411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114012135465019088, guid: f3ea48d862179064cbf518556b74d2c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1848801409}
+  m_Script: {fileID: 11500000, guid: 52ab3f29fb2eb124a9c07ce9f249de1d, type: 3}
 --- !u!1 &1868543089
 GameObject:
   m_ObjectHideFlags: 0
@@ -3600,6 +3618,9 @@ MonoBehaviour:
   IngredientMatchScoreGain: 100
   IngredientMismatchedScoreLoss: 50
   IngredientMissPotScoreLoss: 25
+  expressionManager:
+  - {fileID: 2056888420}
+  - {fileID: 1848801411}
 --- !u!114 &1868543095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3893,6 +3914,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4940768596890276, guid: f3ea48d862179064cbf518556b74d2c2,
     type: 2}
   m_PrefabInternal: {fileID: 2056888418}
+--- !u!114 &2056888420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114012135465019088, guid: f3ea48d862179064cbf518556b74d2c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 2056888418}
+  m_Script: {fileID: 11500000, guid: 52ab3f29fb2eb124a9c07ce9f249de1d, type: 3}
 --- !u!1001 &2070000694
 Prefab:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class ExpresionManager : MonoBehaviour
     {
         MouthNormal.SetActive(false);
         MouthSurprised.SetActive(true);
-        Co_ReturnToNormal(duration);
+        StartCoroutine(Co_ReturnToNormal(duration));
     }
 
     private IEnumerator Co_ReturnToNormal(float duration)
