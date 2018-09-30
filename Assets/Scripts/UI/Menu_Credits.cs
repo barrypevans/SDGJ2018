@@ -12,7 +12,7 @@ public class Menu_Credits : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.anyKey)
+        if (Input.GetButtonDown("Cancel"))
         {
             SceneManager.LoadScene("Menu_Main");
         }

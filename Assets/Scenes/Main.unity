@@ -1610,6 +1610,11 @@ Prefab:
       propertyPath: Menu_Volume
       value: 
       objectReference: {fileID: 1382217465}
+    - target: {fileID: 111199422618510420, guid: b543832077a08bf4a8a15c0b6865c57a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b543832077a08bf4a8a15c0b6865c57a, type: 2}
   m_IsPrefabAsset: 0

@@ -12,6 +12,9 @@ public class Menu_EndGame : MonoBehaviour {
     public Text Text_Score_Left;
     public Text Text_Score_Right;
     public SpriteRenderer SpriteRenderer_Title;
+    public GameObject Text_Continue;
+    public float TimeUntilContinueText;
+    private float m_fElapsedTime;
 
     // Use this for initialization
     void Start ()
@@ -38,10 +41,18 @@ public class Menu_EndGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.anyKey)
+        if (Input.GetButtonDown("Cancel"))
         {
             SceneManager.LoadScene("Menu_Main");
         }
-		
+
+        if (Text_Continue.activeSelf == false)
+        {
+            m_fElapsedTime += Time.deltaTime;
+            if (m_fElapsedTime >= TimeUntilContinueText)
+            {
+                Text_Continue.SetActive(true);
+            }
+        }
 	}
 }

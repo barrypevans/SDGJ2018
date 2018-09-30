@@ -13,7 +13,7 @@ public class Menu_Help : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (gameObject.activeSelf && Input.anyKeyDown)
+        if (gameObject.activeSelf && Input.GetButtonDown("Cancel"))
         {
             this.Hide();
         }
