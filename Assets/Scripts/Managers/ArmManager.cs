@@ -14,6 +14,8 @@ public class ArmManager : MonoBehaviour
     [SerializeField] private Ingredient _acitiveIngredient;
     [SerializeField] private Ingredient _potentialIngredient;
     [SerializeField] private Transform _armRoot;
+    [SerializeField] private ParticleSystem _starParticles;
+
 
     private bool _grabbing;
 
@@ -40,12 +42,12 @@ public class ArmManager : MonoBehaviour
 
             _acitiveIngredient = _potentialIngredient;
             if (null != _acitiveIngredient)
-                _acitiveIngredient.Grab(transform);
+                _acitiveIngredient.Grab(transform, _starParticles);
         }
         else
         {
             if (null != _acitiveIngredient)
-                _acitiveIngredient.Release();
+                _acitiveIngredient.Release(_starParticles);
             _acitiveIngredient = null;
             _potentialIngredient = null;
         }

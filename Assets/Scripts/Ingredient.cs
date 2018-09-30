@@ -13,13 +13,14 @@ public class Ingredient : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private BeatManager _beatManager;
     public ExpresionManager expressionManager;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _beatManager = GameObject.FindObjectOfType<BeatManager>();
     }
 
-    public void Grab(Transform hand)
+    public void Grab(Transform hand, ParticleSystem starParticle = null)
     {
         AudioService.Instance.PlayAudio(ID);
         transform.parent = hand;
@@ -33,11 +34,13 @@ public class Ingredient : MonoBehaviour
             string ingID = _playerId == 0 ? IngredientManager.Instance.CurrentIngredient_Left.GetComponent<Ingredient>().ID : IngredientManager.Instance.CurrentIngredient_Right.GetComponent<Ingredient>().ID;
             if (ingID != ID) return;
             //print("Grabbed On Beat!");
+            if(null != starParticle)
+                starParticle.Play();
             BonusPoints();
         }
     }
 
-    public void Release()
+    public void Release(ParticleSystem starParticle = null)
     {
         transform.parent = null;
         _rigidbody.simulated = true;
@@ -47,6 +50,8 @@ public class Ingredient : MonoBehaviour
             string ingID = _playerId == 0 ? IngredientManager.Instance.CurrentIngredient_Left.GetComponent<Ingredient>().ID : IngredientManager.Instance.CurrentIngredient_Right.GetComponent<Ingredient>().ID;
             if (ingID != ID) return;
             //print("Released On Beat!");
+            if (null != starParticle)
+                starParticle.Play();
             BonusPoints();
         }
     }
@@ -56,11 +61,11 @@ public class Ingredient : MonoBehaviour
         
         if (_playerId == 0)
         {
-            RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreGain;
+            RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreBonus;
         }
         else
         {
-            RoundManager.Instance._p2Score += IngredientManager.Instance.IngredientMatchScoreGain;
+            RoundManager.Instance._p2Score += IngredientManager.Instance.IngredientMatchScoreBonus;
         }
     }
 

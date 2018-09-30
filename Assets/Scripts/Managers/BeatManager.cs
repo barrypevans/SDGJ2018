@@ -18,11 +18,13 @@ public class BeatManager : MonoBehaviour
     [SerializeField] private double _currentBeatUnQuantized = 0;
     private bool _isPlaying = true;
     [SerializeField] private RoundManager _roundManager;
-    private bool[] _accentBeats = { true, false, false, false, true, false, false, false };
+    public bool[] _accentBeats = { true, false, true, false, true, false, true, false };
+
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
         BeatEvent.Invoke(_currentBeat, _accentBeats[(int)_currentBeat]);
+
     }
 
     /// <summary>
