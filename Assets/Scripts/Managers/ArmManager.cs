@@ -32,19 +32,13 @@ public class ArmManager : MonoBehaviour
             _rigidBody.MovePosition(Vector3.Lerp(transform.position,_armRoot.position + new Vector3(velocityDirection.x, velocityDirection.y,0)* ArmLength, 10*Time.deltaTime));
 
         KeyCode key = _side ? KeyCode.Joystick1Button6 : KeyCode.Joystick1Button7;
-        _grabbing = Input.GetKey(key + _playerIndex * 20);
-    }
 
-    private void BeatRecieved(int beatNumber, bool accent)
-    {
-        if (!accent) return;
-
-        if (_grabbing)
+        if (Input.GetKey(key + _playerIndex * 20))
         {
             if (null != _acitiveIngredient) return;
 
             _acitiveIngredient = _potentialIngredient;
-            if(null != _acitiveIngredient)
+            if (null != _acitiveIngredient)
                 _acitiveIngredient.Grab(transform);
         }
         else
@@ -54,6 +48,13 @@ public class ArmManager : MonoBehaviour
             _acitiveIngredient = null;
             _potentialIngredient = null;
         }
+    }
+
+    private void BeatRecieved(int beatNumber, bool accent)
+    {
+        if (!accent) return;
+
+       
     }
 
     private void OnDestroy()

@@ -11,10 +11,12 @@ public class Ingredient : MonoBehaviour
     public int SpriteHeight;
     public IngredientSpawner IngredientSpawner;
     private Rigidbody2D _rigidbody;
+    private BeatManager _beatManager;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _beatManager = GameObject.FindObjectOfType<BeatManager>();
     }
 
     public void Grab(Transform hand)
@@ -24,17 +26,47 @@ public class Ingredient : MonoBehaviour
         transform.localPosition = Vector3.zero;
         _rigidbody.simulated = false;
         _rigidbody.constraints = RigidbodyConstraints2D.None;
+        transform.localScale = new Vector3(2, 2, 2);
+
+        if (_beatManager.isOnBeat())
+        {
+            print("Grabbed On Beat!");
+            BonusPoints();
+        }
     }
 
     public void Release()
     {
         transform.parent = null;
         _rigidbody.simulated = true;
+
+        if (_beatManager.isOnBeat())
+        {
+            print("Released On Beat!");
+            BonusPoints();
+        }
+    }
+
+    private void BonusPoints()
+    {
+        if (_playerId == 0)
+        {
+            RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreGain;
+        }
+        else
+        {
+            RoundManager.Instance._p2Score += IngredientManager.Instance.IngredientMatchScoreGain;
+        }
+    }
+
+    private void Update()
+    {
+        transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, 20 * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "pot")
+        if (collision.gameObject.tag == "pot")
         {
             if (_playerId == 0)
             {
