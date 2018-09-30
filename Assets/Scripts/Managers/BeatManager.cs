@@ -4,18 +4,21 @@
 
 public class BeatManager : MonoBehaviour
 {
+    private static readonly double Threshold = .33333;
+
     private double _bpm = 60;
     private double _secondCounter = 0;
     private AudioSource _audioSource;
     // double lastTime = 10 * AudioSettings.dspTime;
-    int lastTime =0;
+    int lastTime = 0;
     public delegate void BeatDelegate(int beatNumber, bool Accent);
     private event BeatDelegate BeatEvent;
 
     private int _currentBeat = 0;
+    [SerializeField] private double _currentBeatUnQuantized = 0;
     private bool _isPlaying = true;
     [SerializeField] private RoundManager _roundManager;
-    private bool[] _accentBeats = { true, false, false, false, true, false, false,false };
+    private bool[] _accentBeats = { true, false, false, false, true, false, false, false };
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -31,19 +34,28 @@ public class BeatManager : MonoBehaviour
     {
         double beat = (_audioSource.time) / (.5 * 60.0 / _bpm);
         beat %= 8;
+        _currentBeatUnQuantized = beat;
         beat = (int)beat;
-        if(lastTime!=beat)
+        if (lastTime != beat)
         {
             BeatEvent.Invoke((int)beat, _accentBeats[(int)beat]);
             lastTime = (int)beat;
         }
 
-        if(_isPlaying && !_audioSource.isPlaying)
+        if (_isPlaying && !_audioSource.isPlaying)
         {
             _roundManager.EndRound();
             _isPlaying = false;
         }
 
+    }
+
+    public bool isOnBeat()
+    {
+        float bps = (float)_bpm / 60.0f;
+        float diffLast = Mathf.Abs(Mathf.Floor((float)_currentBeatUnQuantized) - (float)_currentBeatUnQuantized) / bps;
+        float diffNext = Mathf.Abs(Mathf.Floor((float)_currentBeatUnQuantized) - (float)_currentBeatUnQuantized) / bps;
+        return diffLast < Threshold || diffNext < Threshold;
     }
 
     public void RegisterBeatDelegate(BeatDelegate bDelegate)
