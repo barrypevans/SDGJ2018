@@ -15,11 +15,11 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - Pot
   - 
-  - 
-  - 
-  - 
+  - HandBlocker
+  - Hand
+  - IngBlocker
+  - Ingredient
   - 
   - 
   - 

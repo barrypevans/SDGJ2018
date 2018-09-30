@@ -406,54 +406,6 @@ Prefab:
       propertyPath: _beatManager
       value: 
       objectReference: {fileID: 49890013}
-    - target: {fileID: 114013447092519832, guid: 86a2708d52879664abed8091af320bc9,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c199c54bd0261fc429091d5e8cf78565,
-        type: 3}
-    - target: {fileID: 114679349581884402, guid: 86a2708d52879664abed8091af320bc9,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c199c54bd0261fc429091d5e8cf78565,
-        type: 3}
-    - target: {fileID: 114574778707781264, guid: 86a2708d52879664abed8091af320bc9,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c199c54bd0261fc429091d5e8cf78565,
-        type: 3}
-    - target: {fileID: 114559913879630478, guid: 86a2708d52879664abed8091af320bc9,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c199c54bd0261fc429091d5e8cf78565,
-        type: 3}
-    - target: {fileID: 114852808580797278, guid: 86a2708d52879664abed8091af320bc9,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c199c54bd0261fc429091d5e8cf78565,
-        type: 3}
-    - target: {fileID: 114866092938375838, guid: 86a2708d52879664abed8091af320bc9,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c199c54bd0261fc429091d5e8cf78565,
-        type: 3}
-    - target: {fileID: 114986313173267310, guid: 86a2708d52879664abed8091af320bc9,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c199c54bd0261fc429091d5e8cf78565,
-        type: 3}
-    - target: {fileID: 114028365548503766, guid: 86a2708d52879664abed8091af320bc9,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c199c54bd0261fc429091d5e8cf78565,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a2708d52879664abed8091af320bc9, type: 2}
   m_IsPrefabAsset: 0
@@ -1670,6 +1622,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 
   _playerId: 0
+  SpriteWidth: 0
+  SpriteHeight: 0
 --- !u!61 &1329603952
 BoxCollider2D:
   m_ObjectHideFlags: 0
