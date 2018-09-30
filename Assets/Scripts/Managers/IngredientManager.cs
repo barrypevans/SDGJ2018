@@ -28,6 +28,7 @@ public class IngredientManager : MonoBehaviour
     public IngredientIndicator IngredientIndicator_Right;
 
     public int IngredientMatchScoreGain;
+    public int IngredientMatchScoreBonus;
     public int IngredientMismatchedScoreLoss;
     public int IngredientMissPotScoreLoss;
 

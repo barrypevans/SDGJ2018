@@ -56,11 +56,11 @@ public class Ingredient : MonoBehaviour
         
         if (_playerId == 0)
         {
-            RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreGain;
+            RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreBonus;
         }
         else
         {
-            RoundManager.Instance._p2Score += IngredientManager.Instance.IngredientMatchScoreGain;
+            RoundManager.Instance._p2Score += IngredientManager.Instance.IngredientMatchScoreBonus;
         }
     }
 
