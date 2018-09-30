@@ -934,6 +934,11 @@ Prefab:
       propertyPath: m_Name
       value: Shelf_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: IngredientManager
+      value: 
+      objectReference: {fileID: 1868543094}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
   m_IsPrefabAsset: 0
@@ -1368,6 +1373,16 @@ Prefab:
     - target: {fileID: 1306870404215288, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
       propertyPath: m_Name
       value: Shelf_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: IngredientManager
+      value: 
+      objectReference: {fileID: 1868543094}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: PlayerID
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
@@ -2197,6 +2212,16 @@ Prefab:
       propertyPath: m_Name
       value: Shelf_01
       objectReference: {fileID: 0}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: IngredientManager
+      value: 
+      objectReference: {fileID: 1868543094}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: PlayerID
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
   m_IsPrefabAsset: 0
@@ -2573,6 +2598,11 @@ Prefab:
       propertyPath: m_Name
       value: Shelf_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: IngredientManager
+      value: 
+      objectReference: {fileID: 1868543094}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
   m_IsPrefabAsset: 0
@@ -2621,6 +2651,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1493773029896192, guid: 0d807fbe24fbac14c8e952ddb011df9d,
         type: 2}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: IngredientManager
+      value: 
+      objectReference: {fileID: 1868543094}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
   m_IsPrefabAsset: 0
@@ -2761,6 +2796,11 @@ Prefab:
       propertyPath: m_Name
       value: Shelf_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: IngredientManager
+      value: 
+      objectReference: {fileID: 1868543094}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
   m_IsPrefabAsset: 0
@@ -3047,6 +3087,16 @@ Prefab:
       propertyPath: m_Name
       value: Shelf_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: IngredientManager
+      value: 
+      objectReference: {fileID: 1868543094}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: PlayerID
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
   m_IsPrefabAsset: 0
@@ -3200,6 +3250,16 @@ Prefab:
       propertyPath: m_Name
       value: Shelf_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: IngredientManager
+      value: 
+      objectReference: {fileID: 1868543094}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: PlayerID
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
   m_IsPrefabAsset: 0
@@ -3336,6 +3396,16 @@ Prefab:
     - target: {fileID: 1306870404215288, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
       propertyPath: m_Name
       value: Shelf_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: IngredientManager
+      value: 
+      objectReference: {fileID: 1868543094}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: PlayerID
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
@@ -4020,6 +4090,16 @@ Prefab:
       propertyPath: m_Name
       value: Shelf_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: IngredientManager
+      value: 
+      objectReference: {fileID: 1868543094}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: PlayerID
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
   m_IsPrefabAsset: 0
@@ -4532,6 +4612,11 @@ Prefab:
       propertyPath: m_Name
       value: Shelf_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: IngredientManager
+      value: 
+      objectReference: {fileID: 1868543094}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
   m_IsPrefabAsset: 0
@@ -4976,8 +5061,12 @@ MonoBehaviour:
   - {fileID: 1493773029896192, guid: 0d807fbe24fbac14c8e952ddb011df9d, type: 2}
   IngredientSpawns_Left: []
   IngredientSpawns_Right: []
+  CurrentIngredient_Left: {fileID: 0}
+  CurrentIngredient_Right: {fileID: 0}
   IngredientIndicator_Left: {fileID: 1720536652}
   IngredientIndicator_Right: {fileID: 1931124863}
+  IngredientMatchScoreGain: 100
+  IngredientMissScoreLoss: 50
 --- !u!114 &1868543095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5040,6 +5129,11 @@ Prefab:
       propertyPath: m_Name
       value: Shelf_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114701559505484232, guid: 2f50e1898f915d94490ce0327f4e784d,
+        type: 2}
+      propertyPath: IngredientManager
+      value: 
+      objectReference: {fileID: 1868543094}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50e1898f915d94490ce0327f4e784d, type: 2}
   m_IsPrefabAsset: 0

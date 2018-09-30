@@ -10,6 +10,7 @@ public class Ingredient : MonoBehaviour
     public int SpriteWidth;
     public int SpriteHeight;
     public IngredientSpawner IngredientSpawner;
+    public IngredientManager IngredientManager;
     private Rigidbody2D _rigidbody;
 
     private void Awake()
@@ -35,10 +36,30 @@ public class Ingredient : MonoBehaviour
     {
         if(collision.gameObject.tag == "pot")
         {
-            if(_playerId == 0)
-                RoundManager.Instance._p1Score += 1;
+            if (_playerId == 0)
+            {
+                if (IngredientManager.CurrentIngredient_Left.GetComponent<Ingredient>().ID == ID)
+                {
+                    RoundManager.Instance._p1Score += IngredientManager.IngredientMatchScoreGain;
+                    IngredientManager.SetIngredient();
+                }
+                else
+                {
+                    RoundManager.Instance._p1Score -= IngredientManager.IngredientMismatchedScoreLoss;
+                }
+            }
             else
-                RoundManager.Instance._p2Score += 1;
+            {
+                if (IngredientManager.CurrentIngredient_Right.GetComponent<Ingredient>().ID == ID)
+                {
+                    RoundManager.Instance._p2Score += IngredientManager.IngredientMatchScoreGain;
+                    IngredientManager.SetIngredient();
+                }
+                else
+                {
+                    RoundManager.Instance._p2Score -= IngredientManager.IngredientMismatchedScoreLoss;
+                }
+            }
 
             if (IngredientSpawner != null)
             {
@@ -50,6 +71,14 @@ public class Ingredient : MonoBehaviour
         }
         else if (collision.gameObject.tag == "table")
         {
+            if (_playerId == 0)
+            {
+                RoundManager.Instance._p1Score -= IngredientManager.IngredientMissPotScoreLoss;
+            }
+            else
+            {
+                RoundManager.Instance._p2Score -= IngredientManager.IngredientMissPotScoreLoss;
+            }
             if (IngredientSpawner != null)
             {
                 IngredientSpawner.SpawnIngredient();
