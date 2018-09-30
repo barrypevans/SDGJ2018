@@ -20,7 +20,8 @@ public class ArmManager : MonoBehaviour
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
-        _beatManager.RegisterBeatDelegate(BeatRecieved);
+        if (_beatManager != null)
+            _beatManager.RegisterBeatDelegate(BeatRecieved);
     }
 
     private void Update()
@@ -59,7 +60,8 @@ public class ArmManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        _beatManager.UnregisterBeatDelegate(BeatRecieved);
+        if (_beatManager != null)
+            _beatManager.UnregisterBeatDelegate(BeatRecieved);
     }
 
     public void PotentialIngredientEnter(Ingredient ingredient)
@@ -72,6 +74,14 @@ public class ArmManager : MonoBehaviour
     {
         if (_potentialIngredient != ingredient)
             _potentialIngredient = null;    
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Hand")
+        {
+            AudioService.Instance.PlayAudio("high_five");
+        }
     }
 
 
