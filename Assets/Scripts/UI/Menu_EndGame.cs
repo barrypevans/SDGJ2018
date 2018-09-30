@@ -11,13 +11,12 @@ public class Menu_EndGame : MonoBehaviour {
     public Sprite TieBackground;
     public Text Text_Score_Left;
     public Text Text_Score_Right;
-    private SpriteRenderer m_pSpriteRenderer;
+    public SpriteRenderer SpriteRenderer_Title;
 
     // Use this for initialization
     void Start ()
     {
         AudioService.Instance.PlayAudio("fanfare");
-        m_pSpriteRenderer = GetComponent<SpriteRenderer>();
         int iPlayer1Score = PlayerPrefs.GetInt("Player1Score");
         int iPlayer2Score = PlayerPrefs.GetInt("Player2Score");
         Text_Score_Left.text = iPlayer1Score.ToString();
@@ -25,15 +24,15 @@ public class Menu_EndGame : MonoBehaviour {
 
         if (iPlayer1Score > iPlayer2Score)
         {
-            m_pSpriteRenderer.sprite = Player1Background;
+            SpriteRenderer_Title.sprite = Player1Background;
         }
         else if (iPlayer1Score < iPlayer2Score)
         {
-            m_pSpriteRenderer.sprite = Player2Background;
+            SpriteRenderer_Title.sprite = Player2Background;
         }
         else
         {
-            m_pSpriteRenderer.sprite = TieBackground;
+            SpriteRenderer_Title.sprite = TieBackground;
         }
     }
 	
