@@ -1603,24 +1603,11 @@ Prefab:
       propertyPath: PauseManager
       value: 
       objectReference: {fileID: 1868543095}
-    - target: {fileID: 1160301044468572, guid: b543832077a08bf4a8a15c0b6865c57a, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508982965257852, guid: b543832077a08bf4a8a15c0b6865c57a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114139667340383548, guid: b543832077a08bf4a8a15c0b6865c57a,
         type: 2}
       propertyPath: Menu_Volume
       value: 
       objectReference: {fileID: 1382217465}
-    - target: {fileID: 114139667340383548, guid: b543832077a08bf4a8a15c0b6865c57a,
-        type: 2}
-      propertyPath: _sfxSider
-      value: 
-      objectReference: {fileID: 1534311814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b543832077a08bf4a8a15c0b6865c57a, type: 2}
   m_IsPrefabAsset: 0

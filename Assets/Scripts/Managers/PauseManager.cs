@@ -60,7 +60,7 @@ public class PauseManager : MonoBehaviour {
         }
         if (Menu_Pause != null)
         {
-            Menu_Pause.gameObject.SetActive(false);
+            Menu_Pause.Resume();
             if (EventSystem != null)
             {
                 EventSystem.SetSelectedGameObject(null);
