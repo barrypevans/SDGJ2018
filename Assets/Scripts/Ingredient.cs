@@ -19,6 +19,7 @@ public class Ingredient : MonoBehaviour
 
     public void Grab(Transform hand)
     {
+        AudioService.Instance.PlayAudio(ID);
         transform.parent = hand;
         transform.localPosition = Vector3.zero;
         _rigidbody.simulated = false;
@@ -45,6 +46,8 @@ public class Ingredient : MonoBehaviour
                 IngredientSpawner.SpawnIngredient();
             }
 
+            AudioService.Instance.PlayAudio("correct");
+
             Destroy(gameObject);
 
         }
@@ -54,7 +57,7 @@ public class Ingredient : MonoBehaviour
             {
                 IngredientSpawner.SpawnIngredient();
             }
-
+            AudioService.Instance.PlayAudio("mistake");
             Destroy(gameObject);
         }
     }

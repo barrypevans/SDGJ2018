@@ -4819,6 +4819,7 @@ GameObject:
   - component: {fileID: 1868543093}
   - component: {fileID: 1868543095}
   - component: {fileID: 1868543094}
+  - component: {fileID: 1868543096}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -4992,6 +4993,17 @@ MonoBehaviour:
   EventSystem: {fileID: 753201864}
   Menu_Pause: {fileID: 432452841}
   BeatManager: {fileID: 1868543090}
+--- !u!114 &1868543096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1868543089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9ecfcb76f78154997b0bd13d722158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1916578908
 Prefab:
   m_ObjectHideFlags: 0

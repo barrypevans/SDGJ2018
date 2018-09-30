@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioService : MonoBehaviour
 {
-    static AudioService Instance;
+    public static AudioService Instance;
     private AudioSource _audioSource;
     private void Awake()
     {
@@ -21,11 +21,11 @@ public class AudioService : MonoBehaviour
     }
 
 
-    private void PlayAudio (string audioID)
+    public void PlayAudio (string audioID)
     {
         AudioClip clip = Resources.Load("sfx\\" + audioID) as AudioClip;
         if (null == clip) Debug.LogError("Audio Clip Not Found");
-        _audioSource.PlayOneShot(clip);
+        _audioSource.PlayOneShot(clip,3);
     }
 
 

@@ -15,7 +15,7 @@ public class ScoreText : MonoBehaviour
 
     private void Update()
     {
-        _text.text = ((int)Mathf.Lerp(curScore, playerIndex ? _roundManager._p1Score : _roundManager._p2Score, .1f * Time.time)).ToString();
+        _text.text = ((int)Mathf.Lerp(curScore, playerIndex ? _roundManager._p1Score : _roundManager._p2Score, .1f * Time.deltaTime)).ToString();
     }
 
 }
