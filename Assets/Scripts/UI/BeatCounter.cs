@@ -15,12 +15,12 @@ public class BeatCounter : MonoBehaviour
     private void Update()
     {
         foreach (Transform t in _beats)
-            t.localScale = Vector3.Lerp(t.localScale, Vector3.one, 10f * Time.deltaTime);
+            t.localScale = Vector3.Lerp(t.localScale, Vector3.one*2, 10f * Time.deltaTime);
     }
 
     private void BeatRecieved(int beatNumber, bool accent)
     {
-        _beats[beatNumber].localScale = accent ? new Vector3(2f, 2f, 2f) : new Vector3(1.3f, 1.3f, 1.3f) ;
+        _beats[beatNumber].localScale = accent ? new Vector3(5.5f, 5.5f, 5.5f) : new Vector3(2.5f, 2.5f, 2.5f) ;
         if (!accent)
             _beats[beatNumber].GetComponent<Image>().color = new Color(.85f, .85f, .85f,1);
     }

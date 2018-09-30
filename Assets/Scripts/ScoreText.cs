@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ScoreText : MonoBehaviour
 {
-    private int curScore = 0;
+    private float curScore = 0;
     [SerializeField] private bool playerIndex;
     [SerializeField] private RoundManager _roundManager;
     private Text _text;
@@ -15,7 +15,8 @@ public class ScoreText : MonoBehaviour
 
     private void Update()
     {
-        _text.text = ((int)Mathf.Lerp(curScore, playerIndex ? _roundManager._p1Score : _roundManager._p2Score, 10 * Time.deltaTime)).ToString();
+        curScore = Mathf.Lerp(curScore, playerIndex ? _roundManager._p1Score : _roundManager._p2Score, 10 * Time.deltaTime);
+        _text.text = (Mathf.CeilToInt(curScore)).ToString();
     }
 
 }
