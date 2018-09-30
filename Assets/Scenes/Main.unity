@@ -5066,7 +5066,8 @@ MonoBehaviour:
   IngredientIndicator_Left: {fileID: 1720536652}
   IngredientIndicator_Right: {fileID: 1931124863}
   IngredientMatchScoreGain: 100
-  IngredientMissScoreLoss: 50
+  IngredientMismatchedScoreLoss: 50
+  IngredientMissPotScoreLoss: 25
 --- !u!114 &1868543095
 MonoBehaviour:
   m_ObjectHideFlags: 0
