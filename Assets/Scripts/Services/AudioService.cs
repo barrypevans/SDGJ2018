@@ -12,6 +12,7 @@ public class AudioService : MonoBehaviour
         {
             Instance = this;
             _audioSource = gameObject.AddComponent<AudioSource>();
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
