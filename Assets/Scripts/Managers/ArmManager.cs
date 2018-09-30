@@ -80,7 +80,7 @@ public class ArmManager : MonoBehaviour
     {
         if (col.gameObject.tag == "Hand")
         {
-            AudioService.Instance.PlayAudio("high_five");
+            AudioService.Instance.PlayAudio("high_five",true);
         }
     }
 

@@ -30,7 +30,9 @@ public class Ingredient : MonoBehaviour
 
         if (_beatManager.isOnBeat())
         {
-            print("Grabbed On Beat!");
+            string ingID = _playerId == 0 ? IngredientManager.Instance.CurrentIngredient_Left.GetComponent<Ingredient>().ID : IngredientManager.Instance.CurrentIngredient_Right.GetComponent<Ingredient>().ID;
+            if (ingID != ID) return;
+            //print("Grabbed On Beat!");
             BonusPoints();
         }
     }
@@ -42,13 +44,16 @@ public class Ingredient : MonoBehaviour
 
         if (_beatManager.isOnBeat())
         {
-            print("Released On Beat!");
+            string ingID = _playerId == 0 ? IngredientManager.Instance.CurrentIngredient_Left.GetComponent<Ingredient>().ID : IngredientManager.Instance.CurrentIngredient_Right.GetComponent<Ingredient>().ID;
+            if (ingID != ID) return;
+            //print("Released On Beat!");
             BonusPoints();
         }
     }
 
     private void BonusPoints()
     {
+        
         if (_playerId == 0)
         {
             RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreGain;
@@ -74,10 +79,12 @@ public class Ingredient : MonoBehaviour
                 {
                     RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreGain;
                     IngredientManager.Instance.SetIngredient(_playerId);
+                    AudioService.Instance.PlayAudio("correct");
                 }
                 else
                 {
                     RoundManager.Instance._p1Score -= IngredientManager.Instance.IngredientMismatchedScoreLoss;
+                    AudioService.Instance.PlayAudio("mistake");
                 }
             }
             else
@@ -86,10 +93,12 @@ public class Ingredient : MonoBehaviour
                 {
                     RoundManager.Instance._p2Score += IngredientManager.Instance.IngredientMatchScoreGain;
                     IngredientManager.Instance.SetIngredient(_playerId);
+                    AudioService.Instance.PlayAudio("correct");
                 }
                 else
                 {
                     RoundManager.Instance._p2Score -= IngredientManager.Instance.IngredientMismatchedScoreLoss;
+                    AudioService.Instance.PlayAudio("mistake");
                 }
             }
 
@@ -97,8 +106,6 @@ public class Ingredient : MonoBehaviour
             {
                 IngredientManager.Instance.MarkSpawnerAvailableAndSpawnIngredientAtRandomSpawner(IngredientSpawner, this.ID);
             }
-
-            AudioService.Instance.PlayAudio("correct");
 
             Destroy(gameObject);
 

@@ -61,12 +61,15 @@ public class BeatManager : MonoBehaviour
         _audioSource.UnPause();
         _isPlaying = true;
     }
+
     public bool isOnBeat()
     {
         float bps = (float)_bpm / 60.0f;
         float diffLast = Mathf.Abs(Mathf.Floor((float)_currentBeatUnQuantized) - (float)_currentBeatUnQuantized) / bps;
-        float diffNext = Mathf.Abs(Mathf.Floor((float)_currentBeatUnQuantized) - (float)_currentBeatUnQuantized) / bps;
-        return diffLast < Threshold || diffNext < Threshold;
+        float diffNext = Mathf.Abs(Mathf.Ceil((float)_currentBeatUnQuantized) - (float)_currentBeatUnQuantized) / bps;
+        int nextBeat = (int)Mathf.Ceil((float)_currentBeatUnQuantized);
+        nextBeat = nextBeat >= 8 ? 0 : nextBeat;
+        return (diffLast < Threshold && _accentBeats[(int)Mathf.Floor((float)_currentBeatUnQuantized)]) || (diffNext < Threshold && _accentBeats[nextBeat]);
     }
 
     public void RegisterBeatDelegate(BeatDelegate bDelegate)
