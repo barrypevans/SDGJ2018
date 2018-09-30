@@ -14,6 +14,8 @@ public class Ingredient : MonoBehaviour
     private BeatManager _beatManager;
     public ExpresionManager expressionManager;
 
+    private bool _releaseBonus;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -52,7 +54,7 @@ public class Ingredient : MonoBehaviour
             //print("Released On Beat!");
             if (null != starParticle)
                 starParticle.Play();
-            BonusPoints();
+            _releaseBonus = true;
         }
     }
 
@@ -82,7 +84,11 @@ public class Ingredient : MonoBehaviour
             {
                 if (IngredientManager.Instance.CurrentIngredient_Left.GetComponent<Ingredient>().ID == ID)
                 {
-                    RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreGain;
+                    if(!_releaseBonus)
+                        RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreGain;
+                    else
+                        RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreGain + IngredientManager.Instance.IngredientMatchScoreBonus;
+
                     IngredientManager.Instance.SetIngredient(_playerId);
                     AudioService.Instance.PlayAudio("correct");
                 }
@@ -98,7 +104,11 @@ public class Ingredient : MonoBehaviour
             {
                 if (IngredientManager.Instance.CurrentIngredient_Right.GetComponent<Ingredient>().ID == ID)
                 {
-                    RoundManager.Instance._p2Score += IngredientManager.Instance.IngredientMatchScoreGain;
+                    if (!_releaseBonus)
+                        RoundManager.Instance._p2Score += IngredientManager.Instance.IngredientMatchScoreGain;
+                    else
+                        RoundManager.Instance._p2Score += IngredientManager.Instance.IngredientMatchScoreGain + IngredientManager.Instance.IngredientMatchScoreBonus;
+
                     IngredientManager.Instance.SetIngredient(_playerId);
                     AudioService.Instance.PlayAudio("correct");
                 }
