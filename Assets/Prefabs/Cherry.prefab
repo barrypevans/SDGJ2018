@@ -156,8 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Cherry
   _playerId: 0
-  SpriteWidth: 123
-  SpriteHeight: 89
+  SpriteWidth: 66
+  SpriteHeight: 118
   IngredientSpawner: {fileID: 0}
   expressionManager: {fileID: 0}
 --- !u!212 &212521866399398312

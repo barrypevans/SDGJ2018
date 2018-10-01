@@ -156,8 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Candles
   _playerId: 0
-  SpriteWidth: 123
-  SpriteHeight: 89
+  SpriteWidth: 143
+  SpriteHeight: 76
   IngredientSpawner: {fileID: 0}
   expressionManager: {fileID: 0}
 --- !u!212 &212497837471958048

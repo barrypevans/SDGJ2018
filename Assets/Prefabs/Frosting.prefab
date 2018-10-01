@@ -156,8 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Frosting
   _playerId: 0
-  SpriteWidth: 123
-  SpriteHeight: 89
+  SpriteWidth: 202
+  SpriteHeight: 148
   IngredientSpawner: {fileID: 0}
   expressionManager: {fileID: 0}
 --- !u!212 &212522531701877048

@@ -156,8 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Bananas
   _playerId: 0
-  SpriteWidth: 123
-  SpriteHeight: 89
+  SpriteWidth: 122
+  SpriteHeight: 115
   IngredientSpawner: {fileID: 0}
   expressionManager: {fileID: 0}
 --- !u!212 &212793137210048212

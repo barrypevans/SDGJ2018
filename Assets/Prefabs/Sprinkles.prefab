@@ -156,8 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Sprinkles
   _playerId: 0
-  SpriteWidth: 123
-  SpriteHeight: 89
+  SpriteWidth: 88
+  SpriteHeight: 111
   IngredientSpawner: {fileID: 0}
   expressionManager: {fileID: 0}
 --- !u!212 &212037244881383774

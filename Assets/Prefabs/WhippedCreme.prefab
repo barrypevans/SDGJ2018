@@ -157,7 +157,7 @@ MonoBehaviour:
   ID: WhippedCreme
   _playerId: 0
   SpriteWidth: 123
-  SpriteHeight: 89
+  SpriteHeight: 126
   IngredientSpawner: {fileID: 0}
   expressionManager: {fileID: 0}
 --- !u!212 &212464291605953624

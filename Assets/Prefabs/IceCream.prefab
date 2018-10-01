@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: IceCream
   _playerId: 0
-  SpriteWidth: 123
+  SpriteWidth: 140
   SpriteHeight: 89
   IngredientSpawner: {fileID: 0}
   expressionManager: {fileID: 0}
