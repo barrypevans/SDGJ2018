@@ -332,7 +332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &99899586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3383,10 +3383,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BeatManager: {fileID: 1868543090}
-  StartCountdownTime: 5
+  StartCountdownTime: 6
   ScaleInTime: 0.4
-  HoldTime: 0.2
-  ScaleOutTime: 0.4
+  HoldTime: 0.4
+  ScaleOutTime: 0.2
 --- !u!114 &1807313289
 MonoBehaviour:
   m_ObjectHideFlags: 0
