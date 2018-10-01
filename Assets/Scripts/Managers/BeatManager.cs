@@ -6,7 +6,7 @@ public class BeatManager : MonoBehaviour
 {
     private static readonly double Threshold = .33333;
 
-    private double _bpm = 60;
+    [SerializeField] private double _bpm = 60;
     private double _secondCounter = 0;
     private AudioSource _audioSource;
     // double lastTime = 10 * AudioSettings.dspTime;
@@ -24,7 +24,8 @@ public class BeatManager : MonoBehaviour
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        BeatEvent.Invoke(_currentBeat, _accentBeats[(int)_currentBeat]);
+        if(null!= BeatEvent)
+            BeatEvent.Invoke(_currentBeat, _accentBeats[(int)_currentBeat]);
 
     }
 
