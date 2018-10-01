@@ -38,6 +38,7 @@ public class Ingredient : MonoBehaviour
             //print("Grabbed On Beat!");
             if(null != starParticle)
                 starParticle.Play();
+            PopUp25();
             BonusPoints();
         }
     }
@@ -54,6 +55,7 @@ public class Ingredient : MonoBehaviour
             //print("Released On Beat!");
             if (null != starParticle)
                 starParticle.Play();
+           
             _releaseBonus = true;
         }
     }
@@ -84,13 +86,16 @@ public class Ingredient : MonoBehaviour
             {
                 if (IngredientManager.Instance.CurrentIngredient_Left.GetComponent<Ingredient>().ID == ID)
                 {
-                    if(!_releaseBonus)
+                    if (!_releaseBonus)
                         RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreGain;
                     else
+                    {
+                        PopUp25();
                         RoundManager.Instance._p1Score += IngredientManager.Instance.IngredientMatchScoreGain + IngredientManager.Instance.IngredientMatchScoreBonus;
-
+                    }
                     IngredientManager.Instance.SetIngredient(_playerId);
                     AudioService.Instance.PlayAudio("correct");
+                    PopUp50();
                 }
                 else
                 {
@@ -107,10 +112,13 @@ public class Ingredient : MonoBehaviour
                     if (!_releaseBonus)
                         RoundManager.Instance._p2Score += IngredientManager.Instance.IngredientMatchScoreGain;
                     else
+                    {
                         RoundManager.Instance._p2Score += IngredientManager.Instance.IngredientMatchScoreGain + IngredientManager.Instance.IngredientMatchScoreBonus;
-
+                        PopUp25();
+                    }
                     IngredientManager.Instance.SetIngredient(_playerId);
                     AudioService.Instance.PlayAudio("correct");
+                    PopUp50();
                 }
                 else
                 {
@@ -144,6 +152,7 @@ public class Ingredient : MonoBehaviour
             }
             AudioService.Instance.PlayAudio("mistake");
             expressionManager.SetSurprised(1);
+            PopUp15();
             Destroy(gameObject);
         }
     }
@@ -160,4 +169,33 @@ public class Ingredient : MonoBehaviour
         if (null != armManager)
             armManager.PotentialIngredientExit(this);
     }
+
+    private void PopUp15()
+    {
+        var obj = Instantiate(Resources.Load("score-pop-15"),Vector3.zero,Quaternion.identity) as GameObject;
+        obj.transform.position = transform.position;
+        obj.transform.position += new Vector3(0, 0, -1);
+    }
+
+    private void PopUp25()
+    {
+        var obj = Instantiate(Resources.Load("score-pop+25"),Vector3.zero,Quaternion.identity) as GameObject;
+        obj.transform.position = transform.position;
+        obj.transform.position += new Vector3(0, 0, -1);
+    }
+
+    private void PopUp30()
+    {
+        var obj = Instantiate(Resources.Load("score-pop-30"),Vector3.zero,Quaternion.identity) as GameObject;
+        obj.transform.position = transform.position;
+        obj.transform.position += new Vector3(0, 0, -1);
+    }
+
+    private void PopUp50()
+    {
+        var obj = Instantiate(Resources.Load("score-pop+50"), Vector3.zero, Quaternion.identity) as GameObject;
+        obj.transform.position = transform.position;
+        obj.transform.position += new Vector3(0, 0, -1);
+    }
+
 }
