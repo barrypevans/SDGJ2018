@@ -15,9 +15,19 @@ public class Menu_Main : MonoBehaviour {
 	void Update () {
 	}
 
-    public void OnClick_StartGame()
+    public void OnClick_Level1()
     {
         SceneManager.LoadScene("Main");
+    }
+
+    public void OnClick_Level2()
+    {
+        SceneManager.LoadScene("Level 2");
+    }
+
+    public void OnClick_Level3()
+    {
+        SceneManager.LoadScene("Level 3");
     }
 
     public void OnClick_Credits()
