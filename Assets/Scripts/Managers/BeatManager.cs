@@ -19,6 +19,7 @@ public class BeatManager : MonoBehaviour
     private bool _isPlaying = true;
     [SerializeField] private RoundManager _roundManager;
     public bool[] _accentBeats = { true, false, true, false, true, false, true, false };
+    public float _timeElapsed = 0;
 
     private void Start()
     {
@@ -49,7 +50,7 @@ public class BeatManager : MonoBehaviour
             _roundManager.EndRound();
             _isPlaying = false;
         }
-
+        _timeElapsed += Time.deltaTime;
     }
 
     public void Pause()
@@ -82,5 +83,10 @@ public class BeatManager : MonoBehaviour
     public void UnregisterBeatDelegate(BeatDelegate bDelegate)
     {
         BeatEvent -= bDelegate;
+    }
+
+    public float GetTimeRemaining()
+    {
+        return _audioSource.clip.length - _timeElapsed;
     }
 }
