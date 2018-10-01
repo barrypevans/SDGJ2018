@@ -26,17 +26,18 @@ public class CountdownTimer : MonoBehaviour
 	// Use this for initialization
 	void Start () {
         m_pText_Timer = GetComponent<Text>();
-        //transform.localScale = Vector3.zero;
+        transform.localScale = Vector3.zero;
     }
 
     // Update is called once per frame
     void Update () {
         float fTimeRemaining = BeatManager.GetTimeRemaining();
 
-        m_pText_Timer.text = ((int)fTimeRemaining).ToString();
         if (fTimeRemaining <= StartCountdownTime)
         {
             m_fElapsedTime += Time.deltaTime;
+
+            m_pText_Timer.text = ((int)fTimeRemaining).ToString();
 
             if (m_eState == State.Start)
             {
@@ -47,12 +48,12 @@ public class CountdownTimer : MonoBehaviour
             {
                 case State.ScaleIn:
                     {
-                        float fScale = Mathf.Lerp(0, ScaleInTime, m_fElapsedTime);
+                        float fScale = m_fElapsedTime / ScaleInTime;
                         transform.localScale = new Vector3(fScale, fScale);
                         if (m_fElapsedTime  >= ScaleInTime)
                         {
+                            m_fElapsedTime = m_fElapsedTime - ScaleInTime;
                             m_eState = State.Hold;
-                            m_fElapsedTime = 0.0f;
                         }
                         break;
                     }
@@ -60,14 +61,14 @@ public class CountdownTimer : MonoBehaviour
                     {
                         if (m_fElapsedTime >= HoldTime)
                         {
+                            m_fElapsedTime = m_fElapsedTime - HoldTime;
                             m_eState = State.ScaleOut;
-                            m_fElapsedTime = 0.0f;
                         }
                         break;
                     }
                 case State.ScaleOut:
                     {
-                        float fScale = Mathf.Lerp(ScaleOutTime, 0, m_fElapsedTime);
+                        float fScale = Mathf.Lerp(1, 0, m_fElapsedTime / ScaleOutTime);
                         transform.localScale = new Vector3(fScale, fScale);
                         if (m_fElapsedTime >= ScaleOutTime)
                         {
@@ -79,12 +80,8 @@ public class CountdownTimer : MonoBehaviour
                             {
                                 m_eState = State.ScaleIn;
                             }
-                            m_fElapsedTime = 0.0f;
+                            m_fElapsedTime = m_fElapsedTime - ScaleOutTime;
                         }
-                        break;
-                    }
-                case State.Finished:
-                    {
                         break;
                     }
             }
