@@ -13,7 +13,7 @@ public class Ingredient : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private BeatManager _beatManager;
     public ExpresionManager expressionManager;
-
+    private bool _grabBonusFlag;
     private bool _releaseBonus;
 
     private void Awake()
@@ -24,6 +24,8 @@ public class Ingredient : MonoBehaviour
 
     public void Grab(Transform hand, ParticleSystem starParticle = null)
     {
+        _grabBonusFlag = true;
+        
         AudioService.Instance.PlayAudio(ID);
         transform.parent = hand;
         transform.localPosition = Vector3.zero;
@@ -31,7 +33,7 @@ public class Ingredient : MonoBehaviour
         _rigidbody.constraints = RigidbodyConstraints2D.None;
         transform.localScale = new Vector3(2, 2, 2);
 
-        if (_beatManager.isOnBeat())
+        if (_beatManager.isOnBeat()&&!_grabBonusFlag)
         {
             string ingID = _playerId == 0 ? IngredientManager.Instance.CurrentIngredient_Left.GetComponent<Ingredient>().ID : IngredientManager.Instance.CurrentIngredient_Right.GetComponent<Ingredient>().ID;
             if (ingID != ID) return;
@@ -48,7 +50,7 @@ public class Ingredient : MonoBehaviour
         transform.parent = null;
         _rigidbody.simulated = true;
 
-        if (_beatManager.isOnBeat())
+        if (_beatManager.isOnBeat()&&!_releaseBonus)
         {
             string ingID = _playerId == 0 ? IngredientManager.Instance.CurrentIngredient_Left.GetComponent<Ingredient>().ID : IngredientManager.Instance.CurrentIngredient_Right.GetComponent<Ingredient>().ID;
             if (ingID != ID) return;
